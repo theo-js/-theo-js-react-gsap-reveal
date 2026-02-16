@@ -1,12 +1,12 @@
 {
   "name": "@theo-js/react-gsap-reveal",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "scripts": {
     "build:types": "tsc",
     "build:js": "vite build",
     "copy:types": "xcopy types\\* dist /E /I /Y",
-    "build": "npm run build:types && npm run build:js && npm run copy:types"
+    "build": "npm run build:types && npm run build:js && npm run copy:types && node ./scripts/addUseClient.js"
   },
   "keywords": [],
   "author": {
