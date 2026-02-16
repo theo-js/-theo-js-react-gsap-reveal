@@ -1,6 +1,6 @@
 {
   "name": "@theo-js/react-gsap-reveal",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "",
   "scripts": {
     "build:types": "tsc",
