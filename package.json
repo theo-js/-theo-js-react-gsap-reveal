@@ -1,6 +1,6 @@
 {
   "name": "@theo-js/react-gsap-reveal",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "scripts": {
     "build:types": "tsc",
@@ -23,9 +23,9 @@
     "README.md"
   ],
   "peerDependencies": {
-    "gsap": "^3.14.2",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4"
+    "gsap": "^3.14.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@types/react": "^19.2.14",
