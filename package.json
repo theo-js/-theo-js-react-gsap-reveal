@@ -1,0 +1,37 @@
+{
+  "name": "@theo-js/react-gsap-reveal",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build:types": "tsc",
+    "build:js": "vite build",
+    "copy:types": "xcopy types\\* dist /E /I /Y",
+    "build": "npm run build:types && npm run build:js && npm run copy:types"
+  },
+  "keywords": [],
+  "author": {
+    "name": "theo-js",
+    "email": "dev.js.theo@gmail.com",
+    "url": "https://github.com/theo-js"
+  },
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "license": "ISC",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "peerDependencies": {
+    "gsap": "^3.14.2",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.4",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
+  }
+}
