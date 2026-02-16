@@ -7,7 +7,7 @@ export default defineConfig({
     lib: {
       entry: "src/index.ts",
       name: "ReactGsapReveal",
-      fileName: (format) => `react-gsap-reveal.${format}.js`,
+      fileName: (format) => `index.${format}.js`,
       formats: ["es", "umd"],
     },
     rollupOptions: {

@@ -1,4 +1,5 @@
-import type { PolymorphicProps } from '../types';
+import * as React from "react";
+import type { PolymorphicProps } from "../types";
 
 type InViewOwnProps = React.PropsWithChildren<{
   onEnter: (elements: HTMLElement[]) => void;
@@ -12,4 +13,7 @@ type InViewOwnProps = React.PropsWithChildren<{
   as?: React.ElementType;
 }>;
 
-export type InViewProps<C extends React.ElementType> = PolymorphicProps<C, InViewOwnProps>;
+export type InViewProps<C extends React.ElementType> = PolymorphicProps<
+  C,
+  InViewOwnProps
+>;

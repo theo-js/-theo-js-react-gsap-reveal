@@ -1,10 +1,11 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
-import { register, unregister } from './observer';
-import type { InViewProps } from './types';
+import * as React from "react";
+import { useEffect, useRef } from "react";
+import { register, unregister } from "./observer";
+import type { InViewProps } from "./types";
 
-export const InView = <C extends React.ElementType = 'span'>({
+export const InView = <C extends React.ElementType = "span">({
   children,
   targetChildren,
   onEnter,
@@ -42,9 +43,13 @@ export const InView = <C extends React.ElementType = 'span'>({
     return () => unregister(element);
   }, [repeat, onEnter, onLeave, targetChildren]);
 
-  const Tag = (as ?? 'span') as React.ElementType;
+  const Tag = (as ?? "span") as React.ElementType;
   return (
-    <Tag {...rest} ref={ref} style={{ ...(rest.style || {}), display: 'block' }}>
+    <Tag
+      {...rest}
+      ref={ref}
+      style={{ ...(rest.style || {}), display: "block" }}
+    >
       {children}
     </Tag>
   );

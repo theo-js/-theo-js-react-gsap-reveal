@@ -1,5 +1,6 @@
-import type { PolymorphicProps } from '../types';
-import type { AnimationName } from './animations';
+import * as React from "react";
+import type { PolymorphicProps } from "../types";
+import type { AnimationName } from "./animations";
 
 type RevealOwnProps<T extends React.ElementType> = React.PropsWithChildren<{
   /**
@@ -27,7 +28,9 @@ type RevealOwnProps<T extends React.ElementType> = React.PropsWithChildren<{
   /**
    * Optional prop to specify additional props for the child element
    */
-  childProps?: React.ComponentProps<T> | ((index: number) => React.ComponentProps<T> | undefined);
+  childProps?:
+    | React.ComponentProps<T>
+    | ((index: number) => React.ComponentProps<T> | undefined);
 }>;
 
 export type RevealProps<
