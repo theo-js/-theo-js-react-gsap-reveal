@@ -12,7 +12,7 @@ type Config = {
 const elements = new Map<Element, Config>();
 
 let observer: IntersectionObserver | null = null;
-let observerOptions: IntersectionObserverInit = { threshold: 0.2 };
+let observerOptions: IntersectionObserverInit = { threshold: 0.5 };
 
 /**
  * Set default options for the Intersection Observer.
