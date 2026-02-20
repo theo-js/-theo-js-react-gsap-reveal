@@ -1,92 +1,39 @@
-import { ExampleBlock } from "@/components/ExampleBlock";
-import { RevealedElement } from "@/components/RevealedElement";
-import { ArrowDownIcon } from "lucide-react";
-import { CustomReveal, Reveal } from "@/components/Reveal";
-import { CustomRevealDefaultsProvider } from "@/components/Reveal/custom";
+import { ArrowDownIcon, GithubIcon } from "lucide-react";
+import * as examples from "@/components/examples";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-zinc-50 font-sans dark:bg-black">
-      <main className="px-6 py-12 max-w-7xl mx-auto">
-        <div className="h-screen">
-          <h1 className="text-xl">Playground</h1>
-          <h2 className="text-2xl flex items-center gap-2 mt-2">
-            <span>Scroll down to see the reveal effect</span>
+    <div className="min-h-screen bg-background font-sans dark:bg-black">
+      <header className="fixed top-0 z-1 px-6 py-3 bg-background/50 backdrop-blur-xl flex justify-between items-start flex-wrap gap-x-16 gap-y-2 w-full">
+        <h1 className="text-xl text-foreground/70">
+          @theo-js/react-gsap-reveal: interactive example
+        </h1>
+
+        <Link
+          className="hover:underline"
+          href={`https://github.com/theo-js/${process.env.NEXT_PUBLIC_REPO_NAME}`}
+        >
+          <GithubIcon className="inline h-[1em] w-[1em] mr-2" /> View on GitHub
+        </Link>
+      </header>
+
+      <div className="px-6 py-12 max-w-7xl mx-auto">
+        <aside className="h-screen">
+          <h2 className="mt-20 md:mt-6 text-2xl flex items-center gap-2 mt-2">
+            <span>
+              <strong>Scroll down</strong> to see the reveal effect
+            </span>
             <ArrowDownIcon />
           </h2>
-        </div>
+        </aside>
 
-        <div className="flex flex-col gap-30 items-start">
-          <ExampleBlock title="Example 1: Basic Reveal">
-            <Reveal>
-              <RevealedElement />
-            </Reveal>
-          </ExampleBlock>
-
-          <ExampleBlock title="Example 2: Staggered Reveal">
-            <Reveal
-              className="flex! gap-8"
-              options={{ stagger: 0.5 }}
-              as="ul"
-              childAs="li"
-            >
-              <RevealedElement>1st child</RevealedElement>
-              <RevealedElement>2nd child</RevealedElement>
-              <RevealedElement>3rd child</RevealedElement>
-            </Reveal>
-          </ExampleBlock>
-
-          <ExampleBlock title="Example 3: repeating Reveal">
-            <Reveal repeat>
-              <RevealedElement>Repeat me</RevealedElement>
-            </Reveal>
-          </ExampleBlock>
-
-          <ExampleBlock title="Example 4: predefined animation with custom options">
-            <Reveal
-              animation="slideLeft"
-              options={{ duration: 2, ease: "elastic.out(1, 0.3)" }}
-            >
-              <RevealedElement>Default slide left animation</RevealedElement>
-            </Reveal>
-          </ExampleBlock>
-
-          <ExampleBlock title="Example 5: custom animation defined via createRevealSystem factory">
-            <CustomReveal
-              animation="rotateIn"
-              options={{
-                alignItems: "center",
-                ease: "elastic.out(1, 0.3)",
-                duration: 1.5,
-              }}
-              repeat
-            >
-              <RevealedElement>Custom animation</RevealedElement>
-            </CustomReveal>
-          </ExampleBlock>
-
-          {/* Next features */}
-          <ExampleBlock title="Example 8: Custom Defaults">
-            <CustomRevealDefaultsProvider
-              animation="rotateIn"
-              options={{ duration: 2 }}
-            >
-              <CustomReveal>
-                <RevealedElement>Custom Defaults {"(2s)"}</RevealedElement>
-              </CustomReveal>
-
-              <CustomReveal options={{ duration: 6 }}>
-                <RevealedElement>
-                  Custom Defaults with instance override {"(6s)"}
-                </RevealedElement>
-              </CustomReveal>
-            </CustomRevealDefaultsProvider>
-          </ExampleBlock>
-
-          {/* <ExampleBlock title="Example 7: Inline custom Animation">
-          </ExampleBlock> */}
-        </div>
-      </main>
+        <main className="flex flex-col gap-30 items-start">
+          {Object.entries(examples).map(([key, Example]) => (
+            <Example key={key} />
+          ))}
+        </main>
+      </div>
     </div>
   );
 }

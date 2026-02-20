@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --code-snippet-bg: rgb(17, 27, 39);
 }
 
 @theme inline {
@@ -10,12 +11,14 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-code-snippet-bg: var(--code-snippet-bg);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --code-snippet-bg: rgb(17, 27, 39);
   }
 }
 
@@ -23,4 +26,35 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+strong {
+  @apply text-cyan-500;
+}
+
+::selection,
+::-moz-selection {
+  @apply bg-cyan-500 text-white;
+}
+.dark ::selection,
+.dark ::-moz-selection {
+  @apply bg-cyan-500/50 text-white;
+}
+
+::-webkit-scrollbar {
+  @apply h-2 w-2;
+  background-color: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-br from-purple-500 to-cyan-500;
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  filter: brightness(0.8);
+}
+
+@layer components {
+  .code-snippets > * {
+    @apply !bg-[var(--color-code-snippet-bg)] dark:!bg-[var(--color-code-snippet-bg)]/50;
+  }
 }
