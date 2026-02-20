@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import { ExampleBlock } from "../ExampleBlock";
-import { CustomReveal } from "../reveal";
+import { CustomReveal } from "../Reveal/custom";
 import { RevealedElement } from "../RevealedElement";
 import { CodeSnippet } from "../CodeSnippet";
 

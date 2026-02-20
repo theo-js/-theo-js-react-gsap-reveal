@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import { ExampleBlock } from "../ExampleBlock";
-import { Reveal } from "../reveal";
+import { Reveal } from "../Reveal/default";
 import { RevealedElement } from "../RevealedElement";
 import { CodeSnippet } from "../CodeSnippet";
 

@@ -1,8 +1,7 @@
 import type { FC } from "react";
 import { ExampleBlock } from "../ExampleBlock";
-import { CustomReveal } from "../reveal";
 import { RevealedElement } from "../RevealedElement";
-import { CustomRevealDefaultsProvider } from "../reveal/custom";
+import { CustomReveal, CustomRevealDefaultsProvider } from "../Reveal/custom";
 import { CodeSnippet } from "../CodeSnippet";
 
 export const Example6: FC = () => {
