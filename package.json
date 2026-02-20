@@ -7,7 +7,7 @@
     "build:js": "vite build",
     "copy:types": "xcopy types\\* dist /E /I /Y",
     "build": "npm run build:types && npm run build:js && npm run copy:types && node ./scripts/addUseClient.js",
-    "dev:playground": "cd playground && npm install && npm run dev"
+    "dev:playground": "npm i -w playground && npm run dev -w playground"
   },
   "keywords": [
     "react",
