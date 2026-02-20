@@ -5,9 +5,7 @@ import { useEffect, useRef } from "react";
 import { register, unregister } from "./observer";
 import type { InViewProps } from "./types";
 
-/**
- * InView component that detects when its children enter or leave the viewport.
- */
+/** Polymorphic component that detects when its children enter or leave the viewport. */
 export const InView = <C extends React.ElementType = "span">({
   children,
   targetChildren,

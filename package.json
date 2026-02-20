@@ -1,14 +1,21 @@
 {
   "name": "@theo-js/react-gsap-reveal",
-  "version": "1.1.0",
-  "description": "",
+  "version": "2.0.0",
+  "description": "A lightweight, type-safe React library for scroll-triggered GSAP animations — built for modern React (App Router, RSC, SSR-safe).",
   "scripts": {
     "build:types": "tsc",
     "build:js": "vite build",
     "copy:types": "xcopy types\\* dist /E /I /Y",
-    "build": "npm run build:types && npm run build:js && npm run copy:types && node ./scripts/addUseClient.js"
+    "build": "npm run build:types && npm run build:js && npm run copy:types && node ./scripts/addUseClient.js",
+    "dev:playground": "cd playground && npm install && npm run dev"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "gsap",
+    "animation",
+    "scroll",
+    "reveal"
+  ],
   "author": {
     "name": "theo-js",
     "email": "dev.js.theo@gmail.com",

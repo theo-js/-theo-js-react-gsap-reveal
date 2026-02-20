@@ -1,32 +1,40 @@
 import { gsap } from "gsap";
 import * as React from "react";
 
-export type AnimationName =
+export type DefaultAnimationNames =
   | "fadeUp"
   | "fadeIn"
   | "slideLeft"
   | "slideRight"
   | "scaleIn";
 
+export const DEFAULT_ANIMATION_NAME: DefaultAnimationNames = "fadeIn";
+
+type AnimationHandler = (params: {
+  elements: HTMLElement[];
+  options: GSAPTweenVars | undefined;
+}) => void;
 type Animation = {
-  fromStyles: React.CSSProperties;
-  onEnter: (params: {
-    elements: HTMLElement[];
-    options?: GSAPTweenVars;
-  }) => void;
-  onLeave?: (params: { elements: HTMLElement[] }) => void;
+  fromStyles?: React.CSSProperties;
+  onEnter: AnimationHandler;
+  onLeave?: AnimationHandler;
 };
 
 const DEFAULT_OPTIONS: GSAPTweenVars = {
-  duration: 1,
+  duration: 1.5,
   ease: "elastic.out(0.75, 0.3)",
   stagger: 0.1,
 };
 
-export const animations: Record<AnimationName, Animation> = {
+export type AnimationsMap<AnimationName extends string> = Record<
+  AnimationName,
+  Animation
+>;
+
+export const DEFAULT_ANIMATIONS: AnimationsMap<DefaultAnimationNames> = {
   fadeUp: {
     fromStyles: { opacity: 0, transform: "translateY(20px)" },
-    onEnter: ({ elements, options = {} }) => {
+    onEnter: ({ elements, options }) => {
       gsap.to(elements, {
         ...DEFAULT_OPTIONS,
         opacity: 1,

@@ -1,17 +1,23 @@
 import * as React from "react";
-import type { PolymorphicProps } from "../types";
-import type { AnimationName } from "./animations";
+import type { PolymorphicProps } from "../../types";
 
-type RevealOwnProps<T extends React.ElementType> = React.PropsWithChildren<{
+type RevealOwnProps<
+  T extends React.ElementType,
+  CustomAnimationNames extends string,
+> = React.PropsWithChildren<{
   /**
-   * Name of the animation to apply (default: 'fadeUp').
+   * Name of the animation to apply (default: 'fadeIn').
    */
-  animation?: AnimationName;
-  /** Repeat the animation every time the element enters the viewport (default: true) */
+  animation?: CustomAnimationNames;
+  /**
+   * Repeat the animation every time the element enters the viewport (default: true).
+   * Note: if you intend to use it with a custom animation defined via `createRevealSystem`,
+   * make sure to implement the `onLeave` property.
+   */
   repeat?: boolean;
   /**
    * Optional GSAP animation options to customize the animation behavior
-   * (e.g., duration, delay, easing) per instance
+   * (e.g., duration, delay, easing) per instance.
    */
   options?: GSAPTweenVars;
   /**
@@ -34,6 +40,7 @@ type RevealOwnProps<T extends React.ElementType> = React.PropsWithChildren<{
 }>;
 
 export type RevealProps<
+  CustomAnimationNames extends string,
   C extends React.ElementType,
   T extends React.ElementType,
-> = PolymorphicProps<C, RevealOwnProps<T>>;
+> = PolymorphicProps<C, RevealOwnProps<T, CustomAnimationNames>>;
