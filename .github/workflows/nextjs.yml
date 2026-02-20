@@ -19,17 +19,30 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
 
+      - name: Replace local library with published version
+        run: |
+          ROOT_VERSION=$(jq -r '.version' package.json)
+          echo "Using @theo-js/react-gsap-reveal@$ROOT_VERSION for CI"
+          cd playground
+          npm install @theo-js/react-gsap-reveal@$ROOT_VERSION --save
+
       - name: Install dependencies (root workspace)
         run: npm ci
+
+      - name: Restore Next.js cache
+        uses: actions/cache@v4
+        with:
+          path: playground/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('playground/package-lock.json') }}
 
       - name: Build playground workspace
         run: npm run build -w playground
