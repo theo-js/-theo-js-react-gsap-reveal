@@ -17,6 +17,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_REPO_NAME: -theo-js-react-gsap-reveal
 
     steps:
       - name: Checkout repository
