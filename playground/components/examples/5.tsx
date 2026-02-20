@@ -14,6 +14,7 @@ export const Example5: FC = () => {
           ease: "elastic.out(1, 0.3)",
           duration: 1.5,
         }}
+        repeat
       >
         <RevealedElement>Custom animation</RevealedElement>
       </CustomReveal>
@@ -37,6 +38,7 @@ const { Reveal } = createRevealSystem({
     ease: "elastic.out(1, 0.3)",
     duration: 1.5,
   }}
+  repeat
 >
   <span>Custom animation</span>
 </Reveal>`}
