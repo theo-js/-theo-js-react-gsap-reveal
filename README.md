@@ -4,6 +4,12 @@
 
 ---
 
+## Demo
+
+[Demo project](https://theo-js.github.io/-theo-js-react-gsap-reveal)
+
+---
+
 ## ✨ Features
 
 - ✅ Scroll-based reveal animations powered by `IntersectionObserver`
