@@ -1,6 +1,6 @@
 {
   "name": "@theo-js/react-gsap-reveal",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A lightweight, type-safe React library for scroll-triggered GSAP animations — built for modern React (App Router, RSC, SSR-safe).",
   "scripts": {
     "build:types": "tsc",
@@ -20,6 +20,10 @@
     "name": "theo-js",
     "email": "dev.js.theo@gmail.com",
     "url": "https://github.com/theo-js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theo-js/-theo-js-react-gsap-reveal.git"
   },
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
